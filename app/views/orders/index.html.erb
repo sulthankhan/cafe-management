@@ -1,0 +1,14 @@
+<h1 class="Page-title">Your Orders...</h1>
+<% if @orders.length > 0 %>
+  <% @orders.each do |order| %>
+    <div class="order_list_item">
+      <h4 class="order_title"><%= order.order_items[0].menu_item_name %> <%= "+#{order.order_items.length - 1}" if order.order_items.length > 1 %></h4>
+      <span class="order_status <%= order.delivered_at ? "delivered" : "pending" %>"><%= order.delivered_at ? "Delivered" : "Pending" %></span>
+      <p class="order_date">Ordered At <%= order.created_at.to_s(:long) if order.created_at %></p>
+      <p class="order_delivered"><%= "Delivered At #{order.delivered_at.to_s(:long)}" if order.delivered_at %></p>
+      <span class="action"><%= link_to "Details", order_path(order.id) %></span>
+    </div>
+  <% end %>
+<% else %>
+  <h3 class="empty_message">Hmm... Looks like you're new in here. <br/> How about ordering some delicious food?</h3>
+<% end %>

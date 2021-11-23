@@ -1,0 +1,145 @@
+.menu_items_table {
+  width: 80%;
+  margin: 20px auto;
+}
+
+.menu_items_table tr:nth-of-type(2n) {
+  background-color: rgb(240, 232, 250);
+}
+
+.menu_items_table th {
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+
+.menu_items_table td,
+.menu_items_table th {
+  border: 1px solid rgb(214, 214, 214);
+  vertical-align: middle;
+  padding: 5px 10px;
+}
+
+.menu_items_table td .menu_item_name {
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.menu_items_table td .menu_item_description {
+  font-weight: lighter;
+  font-size: 0.9rem;
+  margin: 0;
+  color: rgb(155, 155, 155);
+}
+
+.menu_cart__container {
+  display: flex;
+  align-items: flex-start;
+}
+
+.cart__container {
+  width: 50%;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.menu_list {
+  padding: 20px;
+}
+
+.menu_list_item {
+  box-shadow: 2px 2px 5px #999;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.add_resource_form {
+  display: flex;
+  justify-content: center;
+}
+
+.add_resource_input {
+  padding: 10px 20px;
+  margin: 0 10px;
+  width: 50%;
+}
+.add_resource_input__submit {
+  width: 15%;
+  text-transform: uppercase;
+  border: 1px solid rgb(7, 77, 5);
+  background-color: rgb(47, 143, 63);
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.action_link a {
+  font-size: 0.7rem;
+  margin: 0 10px;
+}
+.menu_list_item_delete a {
+  color: red;
+}
+.menu_list_item_set_primary a {
+  color: rgb(161, 175, 194);
+}
+
+.menu_list_item_edit {
+  color: rgb(0, 110, 255);
+  font-size: 0.7rem;
+  margin: 0 10px;
+}
+.primary_menu {
+  background-color: rgb(215, 215, 248);
+  transform: scale(1.1);
+  transition: 0.3s;
+  margin: 10px 0 20px;
+  color: rgb(27, 10, 44);
+}
+
+.menu_list_item_primary {
+  background-color: blueviolet;
+  color: rgb(211, 216, 211);
+  transform: skew(-10deg);
+  padding: 0 5px;
+  display: inline-block;
+  font-size: 0.8rem;
+}
+
+.add_to_cart {
+  text-align: center;
+}
+.add_to_cart a {
+  font-size: 1.5rem;
+  color: rgb(64, 150, 30);
+}
+
+.remove_from_menu{
+  text-align: center;
+
+}
+
+.remove_from_menu a {
+  font-size: 1.5rem;
+  color: rgb(150, 30, 30);
+}
+
+.cart_item__container{
+  width: 100%;
+}
+.small{
+  font-size: .5rem;
+}
+
+.place_order_button{
+  width: 100%;
+  text-transform: uppercase;
+  border: 1px solid rgb(7, 77, 5);
+  background-color: rgb(47, 143, 63);
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 15px
+}

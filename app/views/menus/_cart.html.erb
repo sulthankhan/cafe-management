@@ -1,0 +1,28 @@
+<div class="cart__container">
+  <% if @cart.cart_items.length > 0 %>
+    <table class="cart_item__container">
+      <% @cart.cart_items.each do |item| %>
+          <tr>
+            <td><%= item.menu_item_name %></td>
+            <td>Rs. <%= item.menu_item_price %></td>
+            <td>x<%= item.quantity %></td>
+            <td><%= link_to "<i class=\"fa fa-minus-square\" aria-hidden=\"true\"></i>".html_safe, cart_path(
+                      id: @cart.id,
+                      item_id: item.menu_item_id,
+                      op: "REDUCE",
+                    ), method: :put %>
+            </td>
+          </tr>
+      <% end %>
+      <tr>
+        <td>Grand Total</td>
+        <td>Rs. <%= @cart.total_price %></td>
+      </tr>
+    </table>
+    <%= form_with url: orders_path, method: "POST" do %>
+      <%= submit_tag "Place Order", class: "place_order_button" %>
+    <% end %>
+  <% else %>
+      <h3 class="empty_message">Your cart is empty</h3>
+  <% end %>
+</div>

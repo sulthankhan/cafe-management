@@ -1,0 +1,21 @@
+<h1 class="Page-title">Manage Menus!</h1>
+<%= form_with url: menus_path, method: "POST", class: "add_resource_form" do %>
+  <%= text_field_tag "name", nil, class: "add_resource_input", placeholder: "Menu Name" %>
+  <%= text_field_tag "description", nil, class: "add_resource_input", placeholder: "Describe the menu..." %>
+  <%= submit_tag "Add Menu", class: "add_resource_input add_resource_input__submit" %>
+<% end %>
+
+<div class="menu_list">
+  <% @menus.each do |menu| %>
+    <div class="menu_list_item <%= menu.is_primary ? "primary_menu" : "" %>">
+      <h4 class="menu_list_item_title"><%= menu.name %><%= link_to "details/edit", menu_path(menu.id), class: "menu_list_item_edit" %></h4>
+      <p class="menu_list_item_description"><%= menu.description %></p>
+      <span class="menu_list_item_delete action_link"><%= link_to "Delete Menu", menu_path(menu.id), method: :delete unless menu.is_primary %></span>
+      <% unless menu.is_primary %>
+      <span class="menu_list_item_set_primary action_link"><%= link_to "Set As Primary", set_primary_menu_path(menu.id), method: :put %></span>
+      <% else %>
+        <span class="menu_list_item_primary">Primary Menu</span>
+      <% end %>
+    </div>
+  <% end %>
+</div>
