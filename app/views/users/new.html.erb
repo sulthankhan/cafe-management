@@ -1,0 +1,20 @@
+<h1 class="Page-title UserAuth-title">New user ... Sign-up here !!!</h1>
+<%= form_with url: users_path, class: "UserAuth-form" do |form| %>
+  <div class="UserAuth-input-container">
+    <%= form.text_field :first_name, placeholder: "First Name", class: "UserAuth-input" %>
+    <p class="UserAuth-label">First Name</p>
+  </div>
+  <div class="UserAuth-input-container">
+    <%= form.text_field :last_name, placeholder: "Last name", class: "UserAuth-input" %>
+    <p class="UserAuth-label">Last Name</p>
+  </div>
+  <div class="UserAuth-input-container">
+    <%= form.email_field :email, placeholder: "Email", class: "UserAuth-input" %>
+    <p class="UserAuth-label">Email</p>
+  </div>
+  <div class="UserAuth-input-container">
+    <%= form.password_field :password, placeholder: "Password", class: "UserAuth-input" %>
+    <p class="UserAuth-label">Password</p>
+  </div>
+  <%= form.submit "Signup", class: "UserAuth-submit" %>
+<% end %>

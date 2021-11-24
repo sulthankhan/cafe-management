@@ -1,0 +1,15 @@
+<h1 class="Page-title">Manage Orders!</h1>
+<% if @orders.length > 0 %>
+  <% @orders.each do |order| %>
+    <div class="order_list_item <%= order.delivered_at ? "delivered_order" : "" %>">
+      <h4 class="order_title"><%= order.order_items[0].menu_item_name %> <%= "+#{order.order_items.length - 1}" if order.order_items.length > 1 %></h4>
+      <p class="order_by">Ordered by <%= order.user.first_name %> (<%= order.user.email %>) </p>
+      <p class="order_date">Ordered at <%= order.date.to_s(:long) if order.date %></p>
+      <p class="order_delivered"><%= "Delivered at #{order.delivered_at.to_s(:short)}" if order.delivered_at %></p>
+      <span class="order_set_delivered action_link"><%= link_to "Mark As Delvered", order_path(order.id), method: :put if !order.delivered_at %></span>
+      <span class="action_link"><%= link_to "Details", order_path(order.id) %></span>
+    </div>
+  <% end %>
+<% else %>
+  <h3 class="empty_message">Hmm... Looks like there are no orders.</h3>
+<% end %>

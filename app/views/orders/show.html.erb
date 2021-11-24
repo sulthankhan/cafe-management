@@ -1,0 +1,28 @@
+<h1 class="Page-title">Order #<%= @order.id %></h1>
+<% if @current_user.role == "Admin" %>
+  <p>Ordered By: <%= "#{@order.user.first_name} #{@order.user.last_name} (#{@order.user.email})" %></p>
+<% end %>
+<p><%= "Ordered at: #{@order.date.to_s(:long)}" if @order.date %><p>
+<p class="order_delivered"><%= "Delivered at: #{@order.delivered_at.to_s(:long)}" if @order.delivered_at %><p>
+<table class="order_detail_table">
+  <tr>
+  <th>Description</th>
+  <th>Price</th>
+  <th>Quantity</th>
+  <th>Total</th>
+  <% @order.order_items.each do |item|%>
+    <tr>
+      <td><%= item.menu_item_name %></td>
+      <td><%= item.menu_item_price %></td>
+      <td><%= item.quantity %></td>
+      <td><%= item.menu_item_price * item.quantity %></td>
+    </tr>
+  <% end %>
+  <tr>
+  <td>Grand Total:</td>
+  <td></td>
+  <td></td>
+  <td> <%= @order.total_price %> </td>
+  </tr>
+  </tr>
+</table>

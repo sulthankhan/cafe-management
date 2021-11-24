@@ -1,0 +1,10 @@
+<h1 class="Page-title">Edit <%= @menu.name %> menu...</h1>
+<%= form_with url: menu_path(@menu.id), method: "PUT", class: "add_resource_form" do %>
+  <%= text_field_tag "name", nil, class: "add_resource_input", placeholder: "Dish Name" %>
+  <%= text_field_tag "description", nil, class: "add_resource_input", placeholder: "Describe the dish..." %>
+  <%= text_field_tag "price", nil, class: "add_resource_input", placeholder: "What's the price?" %>
+  <%= submit_tag "Add to Menu", class: "add_resource_input add_resource_input__submit" %>
+<% end %>
+<%= render partial: "menu_items", locals: {
+      show_add_to_cart: false,
+    } %>

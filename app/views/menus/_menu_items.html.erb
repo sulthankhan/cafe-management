@@ -1,0 +1,36 @@
+<% if @menu.menu_items.length > 0 %>
+  <table class="menu_items_table">
+  <tr>
+      <th>Dish Name</th>
+      <th>Price</th>
+      <% if show_add_to_cart %>
+        <th>Add to Cart</th>
+      <% else %>
+        <th>Remove from menu</th>
+      <% end %>
+    </tr>
+  <% @menu.menu_items.each do |item| %>
+    <tr>
+      <td>
+        <div>
+          <p class="menu_item_name"><%= item.name %></p>
+          <p class="menu_item_description"><%= item.description %></p>
+        </div>
+      </td>
+      <td>Rs.<%= item.price %></td>
+      <% if show_add_to_cart %>
+        <td class="add_to_cart"><%= link_to "<i class=\"fa fa-plus-square\" aria-hidden=\"true\"></i>".html_safe, cart_path(
+                                      id: @cart.id,
+                                      item_id: item.id,
+                                      item_name: item.name,
+                                      item_price: item.price,
+                                    ), method: :put %></td>
+      <% else %>
+        <td class="remove_from_menu"><%= link_to "<i class=\"fa fa-times\" aria-hidden=\"true\"></i>".html_safe, menu_item_path(id: item.id, menu_id: @menu.id), method: :delete %></td>
+    <% end %>
+    </tr>
+  <% end %>
+  </table>
+  <% else %>
+  <h3 class="empty_message">No items in the menu. <br/> Start adding dishes in the menu!</h3>
+<% end %>

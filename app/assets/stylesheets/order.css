@@ -1,0 +1,49 @@
+.order_detail_table {
+  width: 100%;
+  margin: 20px auto;
+}
+
+.order_detail_table tr:nth-of-type(2n) {
+  background-color: rgb(240, 232, 250);
+}
+
+.order_detail_table th {
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+
+.order_detail_table td,
+.order_detail_table th {
+  border: 1px solid rgb(214, 214, 214);
+  vertical-align: middle;
+  padding: 5px 10px;
+}
+.order_list_item {
+  box-shadow: 2px 2px 5px #999;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.order_by {
+  margin: 0;
+}
+
+.order_delivered, .order_status {
+  background-color: rgb(13, 138, 61);
+  color: rgb(211, 216, 211);
+  transform: skew(-10deg);
+  padding: 0 5px;
+  display: inline-block;
+  font-size: 0.8rem;
+}
+
+.delivered_order {
+  background-color: rgb(215, 248, 243);
+  margin: 10px 0 20px;
+  color: rgb(27, 10, 44);
+}
+
+.order_status.pending{
+  background-color: red;
+}

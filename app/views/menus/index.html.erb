@@ -1,0 +1,10 @@
+<div>
+  <h1 class="Page-title">We are serving <%= @menu.name %>...</h1>
+  <h3 class="page__subheading"><%= @menu.description %></h3>
+  <div class="menu_cart__container">
+    <%= render partial: "menu_items", locals: {
+                 show_add_to_cart: true,
+               } %>
+    <%= render partial: "cart" %>
+  </div>
+</div>

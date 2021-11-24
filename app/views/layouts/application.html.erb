@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CafeManagement</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", media: "all", 'data-turbolinks-track': "reload" %>
+    <%= javascript_pack_tag "application", 'data-turbolinks-track': "reload" %>
+  </head>
+
+  <body>
+    <% if flash[:error] %>
+      <p class="flash-error">
+        <%= flash[:error] %>
+      </p>
+    <% end %>
+    <main class="main">
+      <% if @current_user %>
+      <% if @current_user.role == "Admin" %>
+        <%= render partial: "partials/nav_admin" %>
+     <% else %>
+       <%= render partial: "partials/nav" %>
+     <% end %>
+      <h3 class="userHeader">
+      Welcome, <%= @current_user.first_name %>! <%= @current_user.role == "Admin" ? "(Admin)" : "" %>
+      </h3>
+      <% else %>
+        <%= render partial: "partials/nav_logged_out" %>
+      <% end %>
+      <%= yield %>
+    </main>
+  </body>
+</html>
