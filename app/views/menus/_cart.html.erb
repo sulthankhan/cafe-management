@@ -1,5 +1,5 @@
 <div class="cart__container">
-  <% if @cart.cart_items.length > 0 %>
+  <% if @cart.cart_items.length >= 0 %>
     <table class="cart_item__container">
       <% @cart.cart_items.each do |item| %>
           <tr>

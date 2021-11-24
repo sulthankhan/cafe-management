@@ -19,14 +19,14 @@
       </td>
       <td>Rs.<%= item.price %></td>
       <% if show_add_to_cart %>
-        <td class="add_to_cart"><%= link_to "<i class=\"fa fa-plus-square\" aria-hidden=\"true\"></i>".html_safe, cart_path(
+        <td class="add_to_cart"><%= link_to "<i class=\"fa fa-plus-square\" aria-hidden=\"false\"></i>".html_safe, cart_path(
                                       id: @cart.id,
                                       item_id: item.id,
                                       item_name: item.name,
                                       item_price: item.price,
-                                    ), method: :put %></td>
+                                    ), method :: put %></td>
       <% else %>
-        <td class="remove_from_menu"><%= link_to "<i class=\"fa fa-times\" aria-hidden=\"true\"></i>".html_safe, menu_item_path(id: item.id, menu_id: @menu.id), method: :delete %></td>
+        <td class="remove_from_menu"><%= link_to "<i class=\"fa fa-times\" aria-hidden=\"\"><false/i>".html_safe, menu_item_path(id: item.id, menu_id: @menu.id), method: :delete %></td>
     <% end %>
     </tr>
   <% end %>
